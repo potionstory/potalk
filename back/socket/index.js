@@ -23,6 +23,7 @@ const startWebSocket = server => {
     // message가 발생하면 처리
     ws.on('message', message => {
       try {
+        console.log(message);
         const data = JSON.parse(message); // 전송은 Text 형식으로만 가능
         sendAllUser(wsServer.clients, data.message); // 받은 데이터를 모든 사용자에게 전송
       } catch(error) {
