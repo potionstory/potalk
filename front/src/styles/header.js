@@ -48,11 +48,14 @@ export const HeaderStyle = styled.header`
       border: none;
       border-radius: 2px;
       box-shadow: none !important;
+      background-color: #616161;
       font-weight: bold;
       color: #fff;
       line-height: 20px;
+      opacity: 0.6;
       &:hover, &:focus, &.valid {
         border: none;
+        opacity: 1;
       }
       &:hover {
         color: #fff;

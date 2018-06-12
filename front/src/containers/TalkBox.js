@@ -49,14 +49,14 @@ class TalkBox extends Component {
 
     return (
       <TalkBoxStyle>
-        <div>
+        <div className="talk_list">
         {
           view.map((text, index) => <div key={index}>{text}</div>)
         }
         </div>
         <div className="enter_area">
-          <input type="text" placeholder="SEARCH TALK" name="text" value={text} onChange={this.handleChange}/>
-          <a className="waves-effect waves-light btn" onClick={this.handleSend}>SEND</a>
+          <input type="text" placeholder="PLEASE ENTER YOUR MESSAGE" name="text" value={text} onChange={this.handleChange}/>
+          <a className="waves-effect waves-light btn" onClick={this.handleSend}><i className="material-icons">chat</i></a>
         </div>
       </TalkBoxStyle>
     );
