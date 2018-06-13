@@ -1,17 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import Header from '../containers/Header';
+import Layout from '../containers/Layout';
 import Container from '../containers/Container';
 import Main from '../containers/Main';
 
 class HomePage extends Component {
   render() {
     return (
-      <Fragment>
-        <Header/>
+      <Layout>
         <Container>
           <Main/>
         </Container>
-      </Fragment>
+      </Layout>
     );
   }
 }

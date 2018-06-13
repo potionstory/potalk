@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const LoginStyle = styled.div`
+  position: relative;
   float: left;
-  top: 0;
-  left: 0;
-  width: calc(100% - 600px);
+  width: 100%;
   height: 100%;
+  min-width: 680px;
+  padding-top: 60px;
+  box-sizing: border-box;
   background-color: #424242;
 `;

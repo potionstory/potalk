@@ -1,13 +1,16 @@
-import React, { Fragment } from 'react';
-import Header from './Header';
-import Container from './Container';
+import React from 'react';
+import TalkList from './TalkList';
+import UserList from './UserList';
+import { LayoutStyle } from '../styles/layout';
 
-const Layout = () => {
+const Layout = (props) => {
+  const { children } = props;
   return (
-    <Fragment>
-      <Header/>
-      <Container/>
-    </Fragment>
+    <LayoutStyle>
+      <TalkList/>
+      { children }
+      <UserList/>
+    </LayoutStyle>
   );
 }
 

@@ -1,15 +1,13 @@
 import React from 'react';
-import TalkList from './TalkList';
-import UserList from './UserList';
+import Title from '../containers/Title';
 import { ContainerStyle } from '../styles/container';
 
 const Container = (props) => {
   const { children } = props;
   return (
     <ContainerStyle>
-      <TalkList/>
+      <Title/>
       { children }
-      <UserList/>
     </ContainerStyle>
   );
 }

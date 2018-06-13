@@ -1,18 +1,16 @@
-import React, { Component, Fragment} from 'react';
-import Header from '../containers/Header';
+import React, { Component } from 'react';
+import Layout from '../containers/Layout';
 import Container from '../containers/Container';
 import Login from '../containers/Login';
 
 class LoginPage extends Component {
-
   render() {
     return (
-      <Fragment>
-        <Header/>
+      <Layout>
         <Container>
           <Login/>
         </Container>
-      </Fragment>
+      </Layout>
     );
   }
 }

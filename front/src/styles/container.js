@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const ContainerStyle = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
+  float: left;
+  width: calc(100% - 600px);
   height: 100%;
-  padding-top: 60px;
   box-sizing: border-box;
   background-color:orange;
 `;

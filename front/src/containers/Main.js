@@ -5,12 +5,19 @@ import { MainStyle } from '../styles/main';
 
 class Main extends Component {
 
+  constructor(prosp) {
+    super(prosp);
+
+    this.state = {
+      isLogined: true
+    };
+  }
+
   render() {
     return (
       <Fragment>
         <MainStyle>
-          <Initial/>
-          <TalkBox/>
+          { this.state.isLogined ? <TalkBox/> : <Initial/> }
         </MainStyle>
       </Fragment>
     )
