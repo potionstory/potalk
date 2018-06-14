@@ -9,7 +9,7 @@ class Main extends Component {
     super(prosp);
 
     this.state = {
-      isLogined: true
+      isLogined: false
     };
   }
 

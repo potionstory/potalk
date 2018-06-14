@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { UserListStyle } from '../styles/userlist';
 
 class UserList extends Component {
@@ -6,9 +7,9 @@ class UserList extends Component {
     return (
       <UserListStyle>
         <div className="sign">
-          <a className="waves-effect waves-light btn">SIGN IN</a>
+          <Link to="/login" className="waves-effect waves-light btn">SIGN IN</Link>
           &nbsp;&nbsp;or&nbsp;&nbsp;
-          <a className="waves-effect waves-light btn">SIGN UP</a>
+          <Link to="/join" className="waves-effect waves-light btn">SIGN UP</Link>
         </div>
         <ul className="collection">
           <li className="collection-item avatar"><i className="material-icons circle">chat</i>USER 01</li>
