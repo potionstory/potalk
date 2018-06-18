@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const talk = require('./talk');
+const auth = require('./auth');
 
 // Default 주소에 접속
 router.get('/', (req, res) => {
@@ -10,5 +11,6 @@ router.get('/', (req, res) => {
 
 // API 요청시 작업에 따라 주소를 구분
 router.use('/talk', talk);
+router.use('/auth', auth);
 
 module.exports = router;

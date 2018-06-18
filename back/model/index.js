@@ -8,7 +8,16 @@ const TalkSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 }, { collection: 'talk' });
 
+const AuthSchema = new Schema({
+  id: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  created: { type: Date, default: Date.now }
+}, { collection: 'auth' })
+
+
 // Schema를 사용하여 model 생성
 const Talk = mongoose.model('Talk', TalkSchema);
+const Auth = mongoose.model('Auth', AuthSchema);
 
-module.exports = { Talk };
+module.exports = { Talk, Auth };
