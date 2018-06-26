@@ -10,12 +10,39 @@ class Login extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      id: null,
+      pw: null
+    };
   };
 
-  componentDidMount() {
+  handleChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleLogin = async () => {
     const { AuthActions } = this.props;
-    AuthActions.login();
+    const data = {
+      id: this.state.id,
+      pw: this.state.pw
+    };
+    
+    try {
+      await AuthActions.login(data);
+      let toastContent = '<span style="color: #333; font-weight:bold">POTALK LOGIN SUCCESS</span>';
+      window.Materialize.toast(toastContent, 2000);
+    } catch(e) {
+      let errorMessage = [
+        'USERNAME NOT EXISTS',
+        'PASSWORD INCORRECT'
+      ];
+      let toastContent = '<span style="color: #333; font-weight:bold">' + errorMessage[this.props.code] + '</span>';
+      window.Materialize.toast(toastContent, 2000);
+    }
   }
 
   render () {
@@ -26,15 +53,15 @@ class Login extends Component {
           <div className="card-content">
             <div className="row">
               <div className="input-field">
-                <input type="text" id="id" className="validate"/>
+                <input type="text" id="id" name="id" className="validate" onChange={this.handleChange}/>
                 <label for="id">USER ID</label>
               </div>
               <div className="input-field">
-                <input type="password" id="re_pw" className="validate"/>
-                <label for="re_pw">PASSWORD</label>
+                <input type="password" id="pw" name="pw" className="validate" onChange={this.handleChange}/>
+                <label for="pw">PASSWORD</label>
               </div>
               <div className="card-action">
-                <a className="waves-effect waves-light btn">SIGN IN</a>
+                <a className="waves-effect waves-light btn" onClick={this.handleLogin}>SIGN IN</a>
               </div>
             </div>
           </div>
@@ -49,7 +76,9 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    isLogined: state.Auth.isLogined
+    isLogined: state.Auth.isLogined,
+    id: state.Auth.id,
+    code: state.Auth.code
   }
 }
 

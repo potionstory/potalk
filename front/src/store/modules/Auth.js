@@ -8,12 +8,13 @@ axios.defaults.baseURL = 'http://localhost:8080';
 const LOGIN = 'auth/LOGIN';
 const JOIN = 'auth/JOIN';
 
-export const login = createAction(LOGIN, data => axios.get('/auth', data));
-export const join = createAction(JOIN, data => axios.post('/auth', data));
+export const login = createAction(LOGIN, data => axios.post('/auth/login', data));
+export const join = createAction(JOIN, data => axios.post('/auth/join', data));
 
 const init = {
   isLogined: false,
-  id: null
+  id: null,
+  code: null
 };
 
 export default handleActions({
@@ -21,8 +22,20 @@ export default handleActions({
     type: LOGIN,
     onSuccess: (state, action) => {
       console.log('LOGIN');
+      const { payload: { data } } = action;
 
-      return state;
+      return state = {
+        isLogined: true,
+        id: data.id
+      };
+    },
+    onFailure: (state, action) => {
+      console.log('LOGIN FAILURE');
+      const { payload: { response: { data } } } = action;
+
+      return state = {
+        code: data.code
+      };
     }
   }),
   ...pender({
@@ -31,6 +44,14 @@ export default handleActions({
       console.log('JOIN');
 
       return state;
+    },
+    onFailure: (state, action) => {
+      console.log('JOIN FAILURE');
+      const { payload: { response: { data } } } = action;
+
+      return state = {
+        code: data.code
+      };
     }
   })
 }, init);

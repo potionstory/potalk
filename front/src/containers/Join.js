@@ -31,10 +31,24 @@ class Join extends Component {
     const data = {
       id: this.state.id,
       email: this.state.email,
-      password: this.state.pw
+      pw: this.state.pw,
+      re_pw: this.state.re_pw
     };
-
-    await AuthActions.join(data);
+    
+    try {
+      await AuthActions.join(data);
+      let toastContent = '<span style="color: #333; font-weight:bold">POTALK JOIN SUCCESS</span>';
+      window.Materialize.toast(toastContent, 2000);
+    } catch(e) {
+      let errorMessage = [
+        'INVALID ID',
+        'PASSWORD IS TOO SHORT',
+        'NOT SAME PASSWORD',
+        'ID ALREADY EXISTS'
+      ];
+      let toastContent = '<span style="color: #333; font-weight:bold">' + errorMessage[this.props.code] + '</span>';
+      window.Materialize.toast(toastContent, 2000);
+    }
   }
 
   render () {
@@ -76,12 +90,12 @@ class Join extends Component {
 
 const mapStateToProps = state => {
   return {
-    isLogind: state.Auth.isLogind
+    isLogind: state.Auth.isLogind,
+    code: state.Auth.code
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  console.log(AuthActions);
   return {
     AuthActions: bindActionCreators(AuthActions, dispatch)
   }

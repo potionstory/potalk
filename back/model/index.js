@@ -11,7 +11,7 @@ const TalkSchema = new Schema({
 const AuthSchema = new Schema({
   id: { type: String, required: true },
   email: { type: String, required: true },
-  password: { type: String, required: true },
+  pw: { type: String, required: true },
   created: { type: Date, default: Date.now }
 }, { collection: 'auth' })
 
