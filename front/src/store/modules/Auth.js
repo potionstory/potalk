@@ -1,6 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
 import { pender } from 'redux-pender';
-import update from 'react-addons-update';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:8080';

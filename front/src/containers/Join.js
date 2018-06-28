@@ -60,19 +60,19 @@ class Join extends Component {
             <div className="row">
               <div className="input-field">
                 <input type="text" id="id" name="id" className="validate" onChange={this.handleChange}/>
-                <label for="id">USER ID</label>
+                <label htmlFor="id">USER ID</label>
               </div>
               <div className="input-field">
                 <input type="text" id="email" name="email" className="validate" onChange={this.handleChange}/>
-                <label for="email">E-MAIL</label>
+                <label htmlFor="email">E-MAIL</label>
               </div>
               <div className="input-field">
                 <input type="password" id="pw" name="pw" className="validate" onChange={this.handleChange}/>
-                <label for="pw">PASSWORD</label>
+                <label htmlFor="pw">PASSWORD</label>
               </div>
               <div className="input-field">
                 <input type="password" id="re_pw" name="re_pw" className="validate" onChange={this.handleChange}/>
-                <label for="re_pw">CONFIRM PASSWORD</label>
+                <label htmlFor="re_pw">CONFIRM PASSWORD</label>
               </div>
               <div className="card-action">
                 <a className="waves-effect waves-light btn" onClick={this.handleJoin}>SIGN UP</a>
